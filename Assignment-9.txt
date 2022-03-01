@@ -1,0 +1,55 @@
+//set up http request 
+var xhr=new XMLHttpRequest();      //Create  XMLHttpRequest  object
+xhr.open("GET","https://raw.githubusercontent.com/rvsp/restcountries-json-data/master/res-countries.json");    //open(method,url)
+xhr.send();
+
+//Set up a listner where server listen to our request 
+xhr.onload=function(){
+    //process the request and server will return the data in response
+    if(xhr.status>=200 && xhr.status<300){
+       //convert raw into js notation format 
+         var data=JSON.parse(xhr.response);
+           
+            
+ 
+
+           
+           
+
+            
+    }else{
+        //you should print the error 
+        console.log("Data is not available");
+    }
+}
+
+1.Get all the countries from Asia continent /region using Filter function
+let region=data.filter((x) => x.region=="Asia");
+console.log(region);
+
+2. Get all the countries with a population of less than 2 lakhs using Filter function
+let population = data.filter((x) => x.population<200000);
+console.log(population);
+
+3. Print the following details name, capital, flag using forEach function
+let details= data.filter((x) => {
+    console.log(`
+                Name:${x.name},
+                Capital:${x.capital},
+                Flag:${x.flag}`);
+})
+
+4.Print the total population of countries using reduce function
+let TotalPopulation=data.map((x) => x.population).reduce((sum,curr) => {
+    sum=sum + curr;
+    return sum;
+});
+console.log(TotalPopulation);
+7349137231
+
+5.Print the country which uses US Dollars as currency.
+console.log(data);
+let dollar=data.filter((x) => x["currencies"][0]["symbol"]=="$").map((x) => {
+    return  `Name:${x.name},Currency:${x["currencies"][0]["symbol"]}`;
+});
+console.log(dollar);
