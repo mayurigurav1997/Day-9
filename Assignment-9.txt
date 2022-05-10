@@ -9,14 +9,6 @@ xhr.onload=function(){
     if(xhr.status>=200 && xhr.status<300){
        //convert raw into js notation format 
          var data=JSON.parse(xhr.response);
-           
-            
- 
-
-           
-           
-
-            
     }else{
         //you should print the error 
         console.log("Data is not available");
